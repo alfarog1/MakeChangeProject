@@ -11,9 +11,19 @@ public class CashRegister {
 		System.out.print("How much cash was tendered? $");
 		double tendered = sc.nextDouble();
 
-		double change = (tendered - price) * 100;
+		int change = (int)((tendered *100)- (price*100)) ;
 		
 		
+	
+		
+
+		int bill10 = 1000;
+		int bill5 = 500;
+		int bill1 = 100;
+		int coin25 = 25;
+		int coin10 = 10;
+		int coin5 = 5;
+		int coin1 = 1;
 
 		if (tendered < price) {
 			System.out.println("Sorry you gave to little, need more cash. ");
@@ -22,66 +32,78 @@ public class CashRegister {
 			System.out.println("Thanks for the exact change. ");
 		} else if (tendered > price) {
 
-			System.out.println("Wait for your change of  $" + (tendered - price));
+			System.out.println("Wait for your change of  $" + change);
 			// After prompting for the user for price and tendered, giving change here on
 			do {
 
-				int bill10 = 1000;
-				int bill5 = 500;
-				int bill1 = 100;
-				int coin25 = 25;
-				int coin10 = 10;
-				int coin5 = 5;
-				int coin1 = 1;
-
 				// make an if statement if over $20 was given if ()
-				//Change for $10 bills
+				// Change for $10 bills
 				if (change > bill10) {
 					System.out.println("You get one $10 bill ");
 				}
-				//Change for $5 bills
+				// Change for $5 bills
 				if (change - bill10 >= bill5) {
 					System.out.println("You get one $5 bill");
 				}
-				
-				//Change for $1 bills
-				if (change < bill5  || change >= bill1  ) {
+
+				// Change for $1 bills
+				if (change < bill5 || change >= bill1) {
 
 					// making change if more than $15
 
-					if (change > (bill10 + bill5) ) {
-						change = ((change -(bill10 + bill5)) /100);
-						change = Math.floor(change);
-						int count = (int)change;
+					if (change > (bill10 + bill5)) {
+						change = ((change - (bill10 + bill5)) / 100);
+					/*	change = Math.floor(change);*/
 
-							System.out.println("You get " + count + " $1 bill(s)");
-						}
-					// making change if less than $15 AND more than $10
-					
-					if (change < (bill10 + bill5) && change > bill10) {
-						change = ((change -bill10) /100);
-						change = Math.floor(change);
-						int count = (int)change;
+						int count = (int) change;
 
-							System.out.println("You get " + count + " $1 bill(s)");
-						}
-					
-					// making change if less than $10 AND more than $1
-					if (change < (bill10) && change > bill1) {
-						change = change /100;
-						change = Math.floor(change);
-						int count = (int)change;
-
-							System.out.println("You get " + count + " $1 bill(s)");
-						}
-					
+						System.out.println("You get " + count + " $1 bill(s)");
 					}
-				//Change for Coins
+					// making change if less than $15 AND more than $10
+
+					if (change < (bill10 + bill5) && change > bill10) {
+						change = ((change - bill10) / 100);
+					/*	change = Math.floor(change);*/
+						int count = (int) change;
+
+						System.out.println("You get " + count + " $1 bill(s)");
+					}
+
+					// making change if less than $10 AND more than $1
+					if (change < bill10 && change > bill1) {
+						change = change / 100;
+					/*	change = Math.floor(change);*/
+						int count = (int) change;
+
+						System.out.println("You get " + count + " $1 bill(s)");
+					}
+
+				}
+				// Change for Coins
+
+			} while (change == 0);
+
+			do {
+				double coinchange = ((tendered - price));
+				double dollars = Math.floor((tendered - price));
+				double output = coinchange - dollars;
+				output = output * 100;
+
+					//change for quarters
+				if (output >= coin25) {
+					output = output / coin25;
+					output = Math.floor(output);
+					int quarters = (int) output;
+
+					System.out.println("You get " + quarters + " quarter(s)");
+
+					}
+				//if ()
+
 				
-				}while (change == 0);
+			} while (change == 0);
 
-			} 
 		}
+
 	}
-
-
+}
