@@ -37,14 +37,18 @@ public class CashRegister {
 				if (tendered - price > bill10) {
 					System.out.println("You get one $10 bill ");
 				}
-				if (tendered - bill10 >= bill5) {
+				if ((tendered - price) - bill10 >= bill5) {
 					System.out.println("You get one $5 bill");
 				}
 				//Since the 
-				if ((tendered - (bill10 + bill5) >= bill1)) {
+				if ((tendered - price) - bill1 > bill1) {
 					 
-					//if
-					System.out.println("You get "+ /*count +*/ "$1 bill");
+					//creating an if statement to see how many $1 bills they need to receive
+					
+					if ((tendered - price) - bill1 > bill1) {
+						
+						System.out.println("You get "+ /*count +*/ "$1 bill");
+					}
 					 
 				}
 				
