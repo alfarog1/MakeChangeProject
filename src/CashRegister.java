@@ -11,11 +11,8 @@ public class CashRegister {
 		System.out.print("How much cash was tendered? $");
 		double tendered = sc.nextDouble();
 
-		int change = (int)((tendered *100)- (price*100)) ;
-		
-		
-	
-		
+		int change = (int) ((tendered * 100) - (price * 100));
+		double cambio = ((double) change) / 100;
 
 		int bill10 = 1000;
 		int bill5 = 500;
@@ -32,7 +29,7 @@ public class CashRegister {
 			System.out.println("Thanks for the exact change. ");
 		} else if (tendered > price) {
 
-			System.out.println("Wait for your change of  $" + change);
+			System.out.println("Wait for your change of  $" + cambio);
 			// After prompting for the user for price and tendered, giving change here on
 			do {
 
@@ -53,55 +50,64 @@ public class CashRegister {
 
 					if (change > (bill10 + bill5)) {
 						change = ((change - (bill10 + bill5)) / 100);
-					/*	change = Math.floor(change);*/
 
-						int count = (int) change;
-
-						System.out.println("You get " + count + " $1 bill(s)");
+						System.out.println("You get " + change + " $1 bill(s)");
 					}
 					// making change if less than $15 AND more than $10
 
 					if (change < (bill10 + bill5) && change > bill10) {
 						change = ((change - bill10) / 100);
-					/*	change = Math.floor(change);*/
-						int count = (int) change;
 
-						System.out.println("You get " + count + " $1 bill(s)");
+						System.out.println("You get " + change + " $1 bill(s)");
 					}
 
 					// making change if less than $10 AND more than $1
 					if (change < bill10 && change > bill1) {
 						change = change / 100;
-					/*	change = Math.floor(change);*/
-						int count = (int) change;
 
-						System.out.println("You get " + count + " $1 bill(s)");
+						System.out.println("You get " + change + " $1 bill(s)");
 					}
 
 				}
-				// Change for Coins
-
-			} while (change == 0);
-
-			do {
-				double coinchange = ((tendered - price));
-				double dollars = Math.floor((tendered - price));
-				double output = coinchange - dollars;
-				output = output * 100;
-
-					//change for quarters
-				if (output >= coin25) {
-					output = output / coin25;
-					output = Math.floor(output);
-					int quarters = (int) output;
-
-					System.out.println("You get " + quarters + " quarter(s)");
-
+//				// Change for Coins
+//				// change for quarters
+					change = (int) ((tendered * 100) - (price * 100));
+//				
+				if (change >= coin25) {
+					cambio = ((int) cambio) * 100;
+					int coins = (int) cambio;
+					change = change - coins;
+					int quarters = change / coin25;
+//					
+//					if (change > coin25) {
+					
+					System.out.println("You get " + quarters + " quarter(s)" + change);
 					}
-				//if ()
+					
+					//if ()
+					
+					
+					
+					
+//				if (change >= coin10) {
+//					cambio = ((int) cambio) * 100;
+//					System.out.println("cambio "+ cambio);
+//					int coins = (int) cambio;
+//					System.out.println("coins "+ coins);
+//					change = change - coins;
+//					System.out.println("change "+ change);
+//					change = change / coin10;
+//					
+//					System.out.println("You get " + change + " quarter(s)");
+//				}
 
-				
 			} while (change == 0);
+
+//
+//			do {
+//
+//
+//			} while (change == 0);
 
 		}
 
