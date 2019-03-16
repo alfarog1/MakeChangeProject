@@ -79,9 +79,13 @@ public class CashRegister {
 					change = change - coins;
 					int quarters = change / coin25;
 //					
-//					if (change > coin25) {
-					
 					System.out.println("You get " + quarters + " quarter(s)" + change);
+					
+					if (change > coin25 && change < bill1 ) { 
+						change = change - (coin25 * quarters);
+						int dimes = change / coin10;
+						System.out.println("You get " + dimes + " dimes");
+					}
 					}
 					
 					//if ()
