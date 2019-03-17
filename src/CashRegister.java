@@ -80,12 +80,29 @@ public class CashRegister {
 					int quarters = change / coin25;
 //					
 					System.out.println("You get " + quarters + " quarter(s)" + change);
-					
+				// Change for dimes	
 					if (change > coin25 && change < bill1 ) { 
 						change = change - (coin25 * quarters);
 						int dimes = change / coin10;
-						System.out.println("You get " + dimes + " dimes");
+						System.out.println("You get " + dimes + " dimes " + change);
+						
+						if (change > coin10) {
+							change = change - (coin10 * dimes);
+							int nickels = change / coin5;
+							System.out.println("You get " + nickels + " nickels " + change);
+							
+							if (change > coin5) {
+								change = change - (coin5);
+								
+								System.out.println("You get " + change + " penny(ies) ");
+							
+						}
 					}
+					
+				// Change for nickels
+					
+					
+					
 					}
 					
 					//if ()
@@ -105,7 +122,6 @@ public class CashRegister {
 //					System.out.println("You get " + change + " quarter(s)");
 //				}
 
-			} while (change == 0);
 
 //
 //			do {
@@ -114,6 +130,8 @@ public class CashRegister {
 //			} while (change == 0);
 
 		}
+			} while (change == 0);
 
 	}
+		}
 }
