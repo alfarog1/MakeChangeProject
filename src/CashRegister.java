@@ -52,7 +52,7 @@ public class CashRegister {
 					if (change > (bill10 + bill5)) {
 						int dollars = ((change - (bill10 + bill5)) / 100);
 						change = change - (bill10 + bill5 + (dollars * 100));
-						System.out.println("You get " + dollars + " $1 bill(s) A");
+						System.out.println("You get " + dollars + " $1 bill(s) ");
 
 						if (change >= coin25) {
 							int quarters = change % coin25;
@@ -76,19 +76,19 @@ public class CashRegister {
 								}
 							}
 						}
-								if (change < coin5 && change > 0) {
-									int nickels = change % coin5;
-									nickels = (change - nickels) / coin5;
-									change = change - (nickels * coin5);
-									System.out.println("You get " + nickels + " nickel ");
-									System.out.println("You get " + change + " penny(ies) ");
+						if (change < coin5 && change > 0) {
+							int nickels = change % coin5;
+							nickels = (change - nickels) / coin5;
+							change = change - (nickels * coin5);
+							System.out.println("You get " + nickels + " nickel ");
+							System.out.println("You get " + change + " penny(ies) ");
 						}
 					}
 
 					if (change > bill10 && change < (bill10 + bill5)) {
 						int dollars = (change - bill10) / 100;
 						change = change - (bill10 + (dollars * 100));
-						System.out.println("You get " + dollars + " $1 bill(s) B");
+						System.out.println("You get " + dollars + " $1 bill(s) ");
 
 						if (change >= coin25) {
 							int quarters = change % coin25;
@@ -110,41 +110,42 @@ public class CashRegister {
 									System.out.println("You get " + change + " penny(ies) ");
 								}
 							}
-							if (change >= coin5) {
-								int nickels = change % coin5;
-								nickels = (change - nickels) / coin5;
-								change = change - (nickels * coin5);
-								System.out.println("You get " + nickels + " nickel ");
-								System.out.println("You get " + change + " penny(ies) ");
+						}
+						if (change >= coin5) {
+							int nickels = change % coin5;
+							nickels = (change - nickels) / coin5;
+							change = change - (nickels * coin5);
+							System.out.println("You get " + nickels + " nickel ");
+							System.out.println("You get " + change + " penny(ies) ");
 
-							}
 						}
 
 					}
 
-				if (change > bill10 && change < (bill10 + bill5)) {
-					int dollars = (change - bill10) / 100;
-					change = change - (bill10 + (dollars * 100));
-					System.out.println("You get " + dollars + " $1 bill(s) C");
+					if (change > bill10 && change < (bill10 + bill5)) {
+						int dollars = (change - bill10) / 100;
+						change = change - (bill10 + (dollars * 100));
+						System.out.println("You get " + dollars + " $1 bill(s) ");
 
-					if (change >= coin25) {
-						int quarters = change % coin25;
-						quarters = (change - quarters) / coin25;
-						change = change - (quarters * coin25);
-						System.out.println("You get " + quarters + " quarter(s) ");
+						if (change >= coin25) {
+							int quarters = change % coin25;
+							quarters = (change - quarters) / coin25;
+							change = change - (quarters * coin25);
+							System.out.println("You get " + quarters + " quarter(s) ");
 
-						if (change >= coin10) {
-							int dimes = change % coin10;
-							dimes = (change - dimes) / coin10;
-							change = change - (dimes * coin10);
-							System.out.println("You get " + dimes + " dime(s) ");
+							if (change >= coin10) {
+								int dimes = change % coin10;
+								dimes = (change - dimes) / coin10;
+								change = change - (dimes * coin10);
+								System.out.println("You get " + dimes + " dime(s) ");
 
-							if (change >= coin5) {
-								int nickels = change % coin5;
-								nickels = (change - nickels) / coin5;
-								change = change - (nickels * coin5);
-								System.out.println("You get " + nickels + " nickel ");
-								System.out.println("You get " + change + " penny(ies) ");
+								if (change >= coin5) {
+									int nickels = change % coin5;
+									nickels = (change - nickels) / coin5;
+									change = change - (nickels * coin5);
+									System.out.println("You get " + nickels + " nickel ");
+									System.out.println("You get " + change + " penny(ies) ");
+								}
 							}
 						}
 						if (change >= coin5) {
@@ -155,14 +156,13 @@ public class CashRegister {
 							System.out.println("You get " + change + " penny(ies)  ");
 
 						}
-
 					}
-				}
 
-				if (change < bill10 && change > 0) {
+				}
+				if (change < bill10 && change < bill1) {
 					int dollars = change / 100;
 					change = change - (dollars * 100);
-					System.out.println("You get " + dollars + " $1 bill(s) D");
+					System.out.println("You get " + dollars + " $1 bill(s) ");
 
 					if (change >= coin25) {
 						int quarters = change % coin25;
@@ -184,16 +184,15 @@ public class CashRegister {
 								System.out.println("You get " + change + " penny(ies) ");
 							}
 						}
-					}
 						if (change >= coin5) {
 							int nickels = change % coin5;
 							nickels = (change - nickels) / coin5;
 							change = change - (nickels * coin5);
-							System.out.println("You get " + nickels + " nickel  " );
+							System.out.println("You get " + nickels + " nickel  ");
 							System.out.println("You get " + change + " penny(ies) ");
 
 						}
-				}
+					}
 
 				}
 			} while (change == 0);
